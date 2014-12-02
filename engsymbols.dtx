@@ -1,0 +1,109 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2014 by Fábio Fortkamp <fabio@fabiofortkamp.com>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Fábio Fortkamp.
+%
+% This work consists of the files engsymbols.dtx and engsymbols.ins
+% and the derived file engsymbols.sty.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{engsymbols.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{engsymbols}[2014/12/02 v0.1 basic skeleton for this package]
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{engsymbols}[2014/12/02]
+\usepackage{chicago}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{engsymbols.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v0.1}{2014/12/02}{Initial version}
+%
+% \GetFileInfo{engsymbols.sty}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+% 
+%
+% \title{The \textsf{engsymbols} package\thanks{This document
+%   corresponds to \textsf{engsymbols}~\fileversion, dated \filedate.}}
+% \author{Fábio Fortkamp \\ \texttt{fabio@fabiofortkamp.com}}
+%
+% \maketitle
+%
+% \section{Introduction}
+% \label{sec:introduction}
+%
+% This document describes the \textsf{engsymbols} package, a collection of macros to facilitate the writing of commom engineering symbols.
+%
+% The following packages are prerequisites:
+%
+% \begin{itemize}
+% \item \textsf{siunitx}
+% \end{itemize}
+%
+% This package follows the conventions specified by ISO standards of typesetting mathematics \cite{bib:beccari}.
+%
+%
+% \StopEventually{\bibliographystyle{chicago}\bibliography{references.bib}}
+%
+% \section{Implementation}
+%
+%
+% \subsection{Special individual symbols}
+% \label{sec:spec-indiv-symb}
+% 
+%\begin{macro}{volume}
+%  This macro produces a calligraphic V to indicate volume, as $\volume$. This is usually done to avoid confusion with velocity.
+%    \begin{macrocode}
+\newcommand{\volume}{\mathcal{V}}
+%    \end{macrocode}
+%\end{macro}
+%
+%
+% \Finale
+\endinput
