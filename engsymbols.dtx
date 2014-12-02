@@ -94,6 +94,17 @@
 % \section{Implementation}
 %
 %
+% \subsection{Basic operations}
+% \label{sec:basic-operations}
+%
+% \begin{macro}{ped}
+%   This macro by \cite{bib:beccari} typesets the argument in math roman font, to indicate a object. Italic subscripts should be used only to refer to another variables, for example, $c_P$ is the specific heat obtained by mantaining the pressure, a physical parameter, fixes. By contrast, $h\ped{L}$ is the liquid enthalpy; liquid is not a variable. The command \verb=\ap= does the same to superscripts, like $T\ap{I}$ for the interface temperature.
+%    \begin{macrocode}
+\newcommand{\ped}[1]{\ensuremath{_{\mathrm{#1}}}}
+\newcommand{\ap}[1]{\ensuremath{^{\mathrm{#1}}}}
+%    \end{macrocode}
+% \end{macro}
+%
 % \subsection{Special individual symbols}
 % \label{sec:spec-indiv-symb}
 % 
@@ -127,16 +138,6 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{Basic operations}
-% \label{sec:basic-operations}
-%
-% \begin{macro}{ped}
-%   This macro by \cite{bib:beccari} typesets the argument in math roman font, to indicate a object. Italic subscripts should be used only to refer to another variables, for example, $c_P$ is the specific heat obtained by mantaining the pressure, a physical parameter, fixes. By contrast, $h\ped{L}$ is the liquid enthalpy; liquid is not a variable. The command \verb=\ap= does the same to superscripts, like $T\ap{I}$ for the interface temperature.
-%    \begin{macrocode}
-\newcommand{\ped}[1]{\ensuremath{_{\mathrm{#1}}}}
-\newcommand{\ap}[1]{\ensuremath{^{\mathrm{#1}}}}
-%    \end{macrocode}
-% \end{macro}
 %
 %
 %
