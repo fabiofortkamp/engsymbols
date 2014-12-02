@@ -116,7 +116,7 @@
 %\end{macro}
 %
 %\begin{macro}{diffd}
-%  This macro produces the differential $\diffd$ operator, as in $\diffd x$. The definition is fairly complex beacuse it tries  to do an optimal spacing, as described by \cite{bib:beccari}.
+%  This macro produces the differential $\diffd$ operator, as in $\diffd x$. The definition is fairly complex beacuse it tries  to do an optimal spacing, and is described by \cite{bib:beccari}.
 %    \begin{macrocode}
 \newcommand{\diffd}{\@ifnextchar^{\DIfF}{\DIfF^{}}}
 \def\DIfF^#1{%
@@ -138,6 +138,13 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\hheat}
+%   This macro produces a ``crossed'' h as in $\hheat$. This is done in some texts to denote the convection heat transfer coefficient and differentiate it from enthalpy $h$. This is actually just an alias to the existing command \verb=\hbar=, to give a more meaningful name. There is also \verb=\hmass= to produce $\hmass$, used to indicate a mass transfer coefficient.
+%    \begin{macrocode}
+\newcommand{\hheat}{\hbar}
+\newcommand{\hmass}{\hbar\ped{m}}
+%    \end{macrocode}
+% \end{macro}
 %
 %
 %
