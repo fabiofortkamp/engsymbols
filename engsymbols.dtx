@@ -78,7 +78,7 @@
 % \section{Introduction}
 % \label{sec:introduction}
 %
-% This document describes the \textsf{engsymbols} package, a collection of macros to facilitate the writing of commom engineering symbols.
+% This document describes the \textsf{engsymbols} package, a collection of macros to facilitate the writing of common engineering symbols.
 %
 % The following packages are prerequisites:
 %
@@ -87,6 +87,8 @@
 % \end{itemize}
 %
 % This package follows the conventions specified by ISO standards of typesetting mathematics \cite{bib:beccari}.
+%
+% \textsf{engsymbols} is actually just a collection of commands I, as a Ph.D. student in Mechanical Engineering, find useful, and I hope other can find it to. There isn't any special design principles.
 %
 %
 % \StopEventually{\bibliography{references.bib}}
@@ -146,7 +148,20 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\universalgasconstant}
+%   A simple command to produce $\universalgasconstant$
+%    \begin{macrocode}
+\newcommand{\universalgasconstant}{R\ped{u}}
+%    \end{macrocode}
+% \end{macro}
 %
+%
+% \begin{macro}{\diffusivitybinary}
+%  This is a shorthand for the diffusivity of a binary mixture, $\diffusivitybinary$.
+%    \begin{macrocode}
+\newcommand{\diffusivitybinary}{\mathcal{D}_{12}}
+%    \end{macrocode}
+% \end{macro}
 %
 %
 % \Finale
