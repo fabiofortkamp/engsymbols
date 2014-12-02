@@ -29,9 +29,9 @@
 %<*driver>
 \documentclass{ltxdoc}
 \usepackage{engsymbols}[2014/12/02]
-\usepackage{chicago}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\bibliographystyle{plain}
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
@@ -89,7 +89,7 @@
 % This package follows the conventions specified by ISO standards of typesetting mathematics \cite{bib:beccari}.
 %
 %
-% \StopEventually{\bibliographystyle{chicago}\bibliography{references.bib}}
+% \StopEventually{\bibliography{references.bib}}
 %
 % \section{Implementation}
 %
@@ -103,6 +103,29 @@
 \newcommand{\volume}{\mathcal{V}}
 %    \end{macrocode}
 %\end{macro}
+%
+%\begin{macro}{diffd}
+%  This macro produces the differential $\diffd$ operator, as in $\diffd x$. The definition is fairly complex beacuse it tries  to do an optimal spacing, as described by \cite{bib:beccari}.
+%    \begin{macrocode}
+\newcommand{\diffd}{\@ifnextchar^{\DIfF}{\DIfF^{}}}
+\def\DIfF^#1{%
+  \mathop{\mathrm{\mathstrut d}}%
+      \nolimits^{#1}\gobblespace}
+\def\gobblespace{%
+  \futurelet\diffarg\opspace}
+\def\opspace{%
+  \let\DiffSpace\!%
+  \ifx\diffarg(%
+      \let\DiffSpace\relax
+  \else
+      \ifx\diffarg[%
+          \let\DiffSpace\relax
+      \else
+          \ifx\diffarg\{%
+              \let\DiffSpace\relax
+          \fi\fi\fi\DiffSpace}
+%    \end{macrocode}
+% \end{macro}
 %
 %
 % \Finale
