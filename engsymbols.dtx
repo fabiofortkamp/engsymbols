@@ -97,7 +97,7 @@
 % \subsection{Basic operations}
 % \label{sec:basic-operations}
 %
-% \begin{macro}{ped}
+% \begin{macro}{\ped}
 %   This macro by \cite{bib:beccari} typesets the argument in math roman font, to indicate a object. Italic subscripts should be used only to refer to another variables, for example, $c_P$ is the specific heat obtained by mantaining the pressure, a physical parameter, fixes. By contrast, $h\ped{L}$ is the liquid enthalpy; liquid is not a variable. The command \verb=\ap= does the same to superscripts, like $T\ap{I}$ for the interface temperature.
 %    \begin{macrocode}
 \newcommand{\ped}[1]{\ensuremath{_{\mathrm{#1}}}}
@@ -108,14 +108,14 @@
 % \subsection{Special individual symbols}
 % \label{sec:spec-indiv-symb}
 % 
-%\begin{macro}{volume}
+%\begin{macro}{\volume}
 %  This macro produces a calligraphic V to indicate volume, as $\volume$. This is usually done to avoid confusion with velocity.
 %    \begin{macrocode}
 \newcommand{\volume}{\mathcal{V}}
 %    \end{macrocode}
 %\end{macro}
 %
-%\begin{macro}{diffd}
+%\begin{macro}{\diffd}
 %  This macro produces the differential $\diffd$ operator, as in $\diffd x$. The definition is fairly complex beacuse it tries  to do an optimal spacing, and is described by \cite{bib:beccari}.
 %    \begin{macrocode}
 \newcommand{\diffd}{\@ifnextchar^{\DIfF}{\DIfF^{}}}
