@@ -100,11 +100,13 @@
 % \label{sec:basic-operations}
 %
 % \begin{macro}{\ped}
-%   This macro by \cite{bib:beccari} typesets the argument in math roman font, to indicate a object. Italic subscripts should be used only to refer to another variables, for example, $c_P$ is the specific heat obtained by mantaining the pressure, a physical parameter, fixes. By contrast, $h\ped{L}$ is the liquid enthalpy; liquid is not a variable. The command \verb=\ap= does the same to superscripts, like $T\ap{I}$ for the interface temperature.
+% \begin{macro}{\ap}
+%   These macros by \cite{bib:beccari} typesets the argument in math roman font, to indicate a object. Italic subscripts should be used only to refer to another variables, for example, $c_P$ is the specific heat obtained by mantaining the pressure, a physical parameter, fixes. By contrast, $h\ped{L}$ (produced by |h\ped{L}|) is the liquid enthalpy; liquid is not a variable. The command \cs{ap}\marg{index} does the same to superscripts, like $T\ap{I}$ for the interface temperature.
 %    \begin{macrocode}
 \newcommand{\ped}[1]{\ensuremath{_{\mathrm{#1}}}}
 \newcommand{\ap}[1]{\ensuremath{^{\mathrm{#1}}}}
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 %
 % \subsection{Special individual symbols}
@@ -141,11 +143,13 @@
 % \end{macro}
 %
 % \begin{macro}{\hheat}
-%   This macro produces a ``crossed'' h as in $\hheat$. This is done in some texts to denote the convection heat transfer coefficient and differentiate it from enthalpy $h$. This is actually just an alias to the existing command \verb=\hbar=, to give a more meaningful name. There is also \verb=\hmass= to produce $\hmass$, used to indicate a mass transfer coefficient.
+% \begin{macro}{\hmass}
+%   These macros produces a ``crossed'' h as in $\hheat$. This is done in some texts to denote the convection heat transfer coefficient and differentiate it from enthalpy $h$. This is actually just an alias to the existing command \cs{hbar}, to give a more meaningful name. There is also \cs{hmass} to produce $\hmass$, used to indicate a mass transfer coefficient.
 %    \begin{macrocode}
 \newcommand{\hheat}{\hbar}
 \newcommand{\hmass}{\hbar\ped{m}}
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 %
 % \begin{macro}{\universalgasconstant}
