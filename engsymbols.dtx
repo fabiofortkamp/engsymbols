@@ -26,6 +26,7 @@
 %<package>\NeedsTeXFormat{LaTeX2e}
 %<package>\ProvidesPackage{engsymbols}[2014/12/02 v0.1 basic skeleton for this package]
 %
+%<package>\RequirePackage{bm}
 %<*driver>
 \documentclass{ltxdoc}
 \usepackage{engsymbols}[2014/12/02]
@@ -105,6 +106,16 @@
 %    \begin{macrocode}
 \newcommand{\ped}[1]{\ensuremath{_{\mathrm{#1}}}}
 \newcommand{\ap}[1]{\ensuremath{^{\mathrm{#1}}}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\nvector}
+% \begin{macro}{\nmatrix}
+%   We define vector and matrix commands according to ISO standards: bold italic for vectors ($\nvector{x}$) and matrices ($\nmatrix{A}$). The ``n'' in names stands for ``notation''. This requires the \texttt{bm} package.
+%    \begin{macrocode}
+\newcommand{\nvector}[1]{\bm{#1}}
+\newcommand{\nmatrix}[1]{\bm{#1}}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -192,5 +203,37 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\divergent}
+% \begin{macro}{\divergentpar}
+% \begin{macro}{divergentn}
+%   These two macros produce the diverget of a vector $\divergentv{\nvector{q}}$. The \texttt{par} variant automatically adds parentheses, useful for multiple arguments like $\divergentpar{\rho \nvector{V}}$ (produced with |\divergentpar{\rho \nvector}|). The \cs{divergentv} command  automatically converts the argument to a vector 
+%    \begin{macrocode}
+\newcommand{\divergent}[1]{\nabla \cdot #1}
+\newcommand{\divergentv}[1]{\divergent{\nvector{#1}}}
+\newcommand{\divergentpar}[1]{\divergent{\left( #1 \right)}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\gradient}
+% \begin{macro}{\gradientpar}
+%   Gradient of a scalar $\gradient{T}$. The \texttt{par} variant introduces parentheses (e.g. $\gradientpar{\frac{\rho_1}{\rho}}$.
+%    \begin{macrocode}
+\newcommand{\gradient}[1]{\nabla {#1}}
+\newcommand{\gradientpar}[1]{\gradient{\left( {#1} \right)}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\laplacian}
+% \begin{macro}{\laplacianpar}
+%   The laplacian of a scalar $x$ is defined as $\laplacian{x} = \divergent{\gradient{x}}$. One could also use $\laplacianpar{ \rho c_p T}$.
+%    \begin{macrocode}
+\newcommand{\laplacian}[1]{\nabla^2 #1}
+\newcommand{\laplacianpar}[1]{\laplacian{\left( #1 \right)}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
 % \Finale
 \endinput
