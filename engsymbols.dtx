@@ -125,7 +125,24 @@
 %
 % \DescribeMacro{\diffusivitybinary} I deal with mixtures a lot, so there is \cs{diffusivitybinary} $\diffusivitybinary$, which is used to indicate the mass diffusivity of a binary mixture.
 %
-% \DescribeMacro{\universalgasconstant} Finally, there is a command \cs{universalgasconstant} to write $\universalgasconstant$, the universal gas constant. The u index (also in roman font) marks this as a constant; each fluid has its own ``gas constant'', defined as $R = \frac{\universalgasconstant}{M}$, where $M$ is the molar mass; hence for a mixture, this gas constant varies with the composition, and of course different fluids have different $R$. $\universalgasconstant$ is universal for all fluids. 
+% \DescribeMacro{\universalgasconstant} Finally, there is a command \cs{universalgasconstant} to write $\universalgasconstant$, the universal gas constant. The u index (also in roman font) marks this as a constant; each fluid has its own ``gas constant'', defined as $R = \frac{\universalgasconstant}{M}$, where $M$ is the molar mass; hence for a mixture, this gas constant varies with the composition, and of course different fluids have different $R$. $\universalgasconstant$ is universal for all fluids.
+%
+%
+%\subsection{Auxiliary commands}
+%\label{sec:auxiliary}
+%
+% \DescribeMacro{\ped} \DescribeMacro{\ap} These macros are defined and explained in \cite{bib:beccari}, and produce a subscript and superscript in roman font; this is probably the most confusing command. |h\ped{L}| produces $h\ped{L}$, the enthalpy of the liquid phase, while |e_L| produces $e_L$, for example, the error in a \emph{variable} $L$. These commands can also be writen in text mode, like |2\ap{nd}| to write $2\ap{nd}$.
+%
+%\subsection{Vector commands}
+%\label{sec:vector}
+%
+% \DescribeMacro{\nvector} \DescribeMacro{\nmatrix} The command \cmd{nvector}\marg{arg} typesets \marg{arg} in vector form, like $\nvector{x}$ and $\nvector{\phi}$. There is also a matrix command. The ``n'' indicates notation, to avoid defining something as general as \cs{vector}.
+%
+% The other commands are used in vector operations. The \DescribeMacro{\vectornorm} vector norm $\vectornorm{a}$ is written as |\vectornorm{\nvector{a}}| and the \DescribeMacro{\divergent} divergent $\divergent{\nvector{V}}$ as |\divergent{\nvector{V}}|. The gradient of a scalar $\gradient{T}$ (|\gradient{T}|) transforms a scalar into a vector (which is why I included it into this group of ``vector operations''), and the laplacian $\laplacian{x}$, with many applications in differential equations, is defined as |\laplacian{x} = \divergent{\gradient{x}}| (try to understand this definition and to imagine how it would be typeset). \DescribeMacro{\laplacian}
+%
+% \DescribeMacro{\divergentpar} \DescribeMacro{\gradientpar} \DescribeMacro{\laplacianpar} The \cs{laplacian}, \cs{divergent} and \cs{gradient} also have \texttt{par} variants to automatically add parentheses; for example, |\divergentpar{\rho \nvector{V}}| is the term $\divergentpar{\rho \nvector{V}}$ widely used in fluid mechanics.
+%
+% Finally, for the divergent, there is a command \DescribeMacro{\divergentv} |\divergentv{q}| that automatically wraps the argument into vector form, as in $\divergentv{q}$.
 %
 %
 % \StopEventually{\bibliography{references.bib}}
@@ -241,7 +258,7 @@
 %
 % \begin{macro}{\divergent}
 % \begin{macro}{\divergentpar}
-% \begin{macro}{divergentn}
+% \begin{macro}{\divergentv}
 %   These two macros produce the diverget of a vector $\divergentv{\nvector{q}}$. The \texttt{par} variant automatically adds parentheses, useful for multiple arguments like $\divergentpar{\rho \nvector{V}}$ (produced with |\divergentpar{\rho \nvector}|). The \cs{divergentv} command  automatically converts the argument to a vector 
 %    \begin{macrocode}
 \newcommand{\divergent}[1]{\nabla \cdot #1}
