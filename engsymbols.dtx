@@ -136,7 +136,7 @@
 %\subsection{Vector commands}
 %\label{sec:vector}
 %
-% \DescribeMacro{\nvector} \DescribeMacro{\nmatrix} The command \cmd{nvector}\marg{arg} typesets \marg{arg} in vector form, like $\nvector{x}$ and $\nvector{\phi}$. There is also a matrix command. The ``n'' indicates notation, to avoid defining something as general as \cs{vector}.
+% \DescribeMacro{\nvector} \DescribeMacro{\nmatrix} The command \cmd{\nvector}\marg{arg} typesets \marg{arg} in vector form, like $\nvector{x}$ and $\nvector{\phi}$. There is also a matrix command. The ``n'' indicates notation, to avoid defining something as general as \cs{vector}.
 %
 % The other commands are used in vector operations. The \DescribeMacro{\vectornorm} vector norm $\vectornorm{a}$ is written as |\vectornorm{\nvector{a}}| and the \DescribeMacro{\divergent} divergent $\divergent{\nvector{V}}$ as |\divergent{\nvector{V}}|. The gradient of a scalar $\gradient{T}$ (|\gradient{T}|) transforms a scalar into a vector (which is why I included it into this group of ``vector operations''), and the laplacian $\laplacian{x}$, with many applications in differential equations, is defined as |\laplacian{x} = \divergent{\gradient{x}}| (try to understand this definition and to imagine how it would be typeset). \DescribeMacro{\laplacian}
 %
@@ -144,6 +144,15 @@
 %
 % Finally, for the divergent, there is a command \DescribeMacro{\divergentv} |\divergentv{q}| that automatically wraps the argument into vector form, as in $\divergentv{q}$.
 %
+%
+%\subsection{Other operations}
+%\label{sec:other-op}
+%
+% \DescribeMacro{\rate} The command |\rate{m}| produces $\rate{m}$, which can be understood as a ``mass flow rate''. This is just an alias for \cs{dot}, and is actually harder to type, but it's more meaningful. Similarly, there is \DescribeMacro{\flux} |\flux{q}| to write the heat flux $\flux{q}$.
+%
+% \DescribeMacro{\average} The macro |\average{f}| results in $\average{f}$. I've seen some definitions that shortens the bar above the argument, but I think this length is just fine.
+%
+% \DescribeMacro{\diffpar} Sometimes I want to write the derivative of a product; I really like the \cs{diff} command from the \textsf{esdiff} package, but $\diff{ \rho V}{x}$ is a little ugly for my taste. I prefer something like $\diffpar{\rho V}{x}$: the numerator in the derivative is empty, and the argument, the function to be derived, is written right after the fraction with parentheses around it (this expression was written as |\diffpar{\rho V}{x}|). There is also the \DescribeMacro{\diffppar} |\diffppar{\rho V}{x}| variant, resulting in $\diffppar{\rho V}{x}$.
 %
 % \StopEventually{\bibliography{references.bib}}
 %
