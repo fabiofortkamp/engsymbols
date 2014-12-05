@@ -28,6 +28,7 @@
 %
 %<package>\RequirePackage{bm}
 %<package>\RequirePackage{amsmath}
+%<package>\RequirePackage{esdiff}
 %<*driver>
 \documentclass{ltxdoc}
 \usepackage{engsymbols}[2014/12/02]
@@ -87,6 +88,7 @@
 % \begin{itemize}
 % \item \textsf{bm}
 % \item \textsf{amsmath}
+% \item \textsf{esdiff}
 % \end{itemize}
 %
 % This package follows the conventions specified by ISO standards of typesetting mathematics \cite{bib:beccari}.
@@ -243,6 +245,16 @@
 %    \begin{macrocode}
 \newcommand{\vectornorm}[1]{\left\lVert #1 \right\rVert}
 %    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\diffpar}
+% \begin{macro}{\diffppar}
+%   This produces something like $\diffpar{\rho V}{x}$, building on the \cs{diff} command from the \textsf{esdiff} package. I find it really useful for printing derivatives when the function to be derived is a product of variables. Compare with $\diff{\rho V}{x}$. Notice the parentheses are automatically added. There is also the \cs{diffppar} for partial derivatives.
+%    \begin{macrocode}
+\newcommand{\diffpar}[2]{\diff{}{#2} \left( #1 \right)}
+\newcommand{\diffppar}[2]{\diffp{}{#2} \left( #1 \right)}
+%    \end{macrocode}
+% \end{macro}
 % \end{macro}
 % \Finale
 \endinput
