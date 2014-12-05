@@ -38,6 +38,7 @@
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
+\OnlyDescription
 \begin{document}
   \DocInput{engsymbols.dtx}
   \PrintChanges
@@ -91,9 +92,40 @@
 % \item \textsf{esdiff}
 % \end{itemize}
 %
-% This package follows the conventions specified by ISO standards of typesetting mathematics \cite{bib:beccari}.
+% This package follows the conventions specified by ISO standards of typesetting mathematics \cite{bib:beccari}. The main points of this convention are:
 %
-% \textsf{engsymbols} is actually just a collection of commands I, as a Ph.D. student in Mechanical Engineering, find useful, and I hope other can find it to. There isn't any special design principles.
+% \begin{itemize}
+% \item variables are always writen in italic, \emph{and also} in bold for vector and matrices
+% \item in other words, vectors don't have arrows above it
+% \item subscripts and superscripts are written in roman upright font when they do not indicate a variable per se; e.g. when they refer to a physicial object, a fluid fase, a state etc
+% \end{itemize}
+%
+% \textsf{engsymbols} is actually just a collection of commands I, as a Ph.D. student in Mechanical Engineering, find useful, and I hope others can find it to. There aren't any special design principles, except that:
+%
+% \begin{itemize}
+% \item Command names are not short, but are descriptive. The user can always define an alias, and many editors can parse the packages and offer tab completion.
+% \item These macros are not intended to be the absolute true way of scientific writing. As I said, I try to follow some standards and observe what is commonly used.
+% \end{itemize}
+% 
+% Please notice that the user should refer to other references such as papers and textbooks to get the meaning of the symbols I describe here.
+%
+%
+%\section{Available commands}
+%\label{sec:commands}
+%
+%
+%\subsection{Special symbols}
+%\label{sec:special-symbols}
+%
+% First we have some basic symbols, commands that take no arguments.
+%
+%\DescribeMacro{\volume} This \cs{volume} macro typesets a special symbol $\volume$ to indicate the total volume of something. The more logical $V$ is avoided, mainly in fluid mechanics texts, because it's used for velocity. I chose the calligraphic V because the often used $\forall$ is really ugly and is intended to use with logical propositions (``for all $x$ \ldots'').
+%
+% \DescribeMacro{\hheat} \DescribeMacro{\hmass} The symbols $\hheat$ (\cs{hheat}) and $\hmass$ (\cs{hmass}) are used in some textbooks to indicate the convection heat (or mass) transfer coeficient and to avoid confusion with enthalpy $h$. I'm aware that $\hbar$ is also used for the reduced Planck  constant, but I don't think it's used in engineering literature. I also know that the distinction between an enthalpy value and a heat transfer coefficient value can be inferred by the context, but in a equation with many terms, including terms with enthalpy and heat transfer rates, this can make things clearer. Also notice the m subscript in roman fonts; it's a coefficient for mass transfer, and not a coefficient for a variable $m$.
+%
+% \DescribeMacro{\diffusivitybinary} I deal with mixtures a lot, so there is \cs{diffusivitybinary} $\diffusivitybinary$, which is used to indicate the mass diffusivity of a binary mixture.
+%
+% \DescribeMacro{\universalgasconstant} Finally, there is a command \cs{universalgasconstant} to write $\universalgasconstant$, the universal gas constant. The u index (also in roman font) marks this as a constant; each fluid has its own ``gas constant'', defined as $R = \frac{\universalgasconstant}{M}$, where $M$ is the molar mass; hence for a mixture, this gas constant varies with the composition, and of course different fluids have different $R$. $\universalgasconstant$ is universal for all fluids. 
 %
 %
 % \StopEventually{\bibliography{references.bib}}
