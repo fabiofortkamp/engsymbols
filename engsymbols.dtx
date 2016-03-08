@@ -24,7 +24,7 @@
 \ProvidesFile{engsymbols.dtx}
 %</driver>
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{engsymbols}[2014/12/05 v0.1 basic skeleton for this package]
+%<package>\ProvidesPackage{engsymbols}[2016/03/08 v0.2 Included more vector commands]
 %
 %<package>\RequirePackage{bm}
 %<package>\RequirePackage{amsmath}
@@ -38,7 +38,6 @@
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
-\OnlyDescription
 \begin{document}
   \DocInput{engsymbols.dtx}
   \PrintChanges
@@ -47,7 +46,7 @@
 %</driver>
 % \fi
 %
-% \CheckSum{127}
+% \CheckSum{143}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -67,6 +66,7 @@
 %
 %
 % \changes{v0.1}{2014/12/05}{Initial version}
+% \changes{v0.2}{2016/03/08}{Included more vector commands}
 %
 % \GetFileInfo{engsymbols.sty}
 %
@@ -138,11 +138,13 @@
 %
 % \DescribeMacro{\nvector} \DescribeMacro{\nmatrix} The command \cmd{\nvector}\marg{arg} typesets \marg{arg} in vector form, like $\nvector{x}$ and $\nvector{\phi}$. There is also a matrix command. The ``n'' indicates notation, to avoid defining something as general as \cs{vector}.
 %
-% The other commands are used in vector operations. The \DescribeMacro{\vectornorm} vector norm $\vectornorm{a}$ is written as |\vectornorm{\nvector{a}}| and the \DescribeMacro{\divergent} divergent $\divergent{\nvector{V}}$ as |\divergent{\nvector{V}}|. The gradient of a scalar $\gradient{T}$ (|\gradient{T}|) transforms a scalar into a vector (which is why I included it into this group of ``vector operations''), and the laplacian $\laplacian{x}$, with many applications in differential equations, is defined as |\laplacian{x} = \divergent{\gradient{x}}| (try to understand this definition and to imagine how it would be typeset). \DescribeMacro{\laplacian}
+% \DescribeMacro{\univector} \DescribeMacro{\normalvector} For typesetting unit vectors, you can type |\unitvector{\alpha}| to get a unit vector in the direction of $\alpha$ as $\unitvector{\alpha}$. To get the commonly-used normal vector $\normalvector$, you can type |\normalvector|.
+%
+% The other commands are used in vector operations. The \DescribeMacro{\vectornorm} vector norm $\vectornorm{a}$ is written as |\vectornorm{\nvector{a}}|, the \DescribeMacro{\divergent} divergent $\divergent{\nvector{V}}$ as |\divergent{\nvector{V}}|, and the \DescribeMacro{\curl} vector curl $\curl{\nvector{V}}$ as |\curl{\nvector{V}}|. The gradient of a scalar $\gradient{T}$ (|\gradient{T}|) transforms a scalar into a vector (which is why I included it into this group of ``vector operations''), and the laplacian $\laplacian{x}$, with many applications in differential equations, is defined as |\laplacian{x} = \divergent{\gradient{x}}| (try to understand this definition and to imagine how it would be typeset). \DescribeMacro{\laplacian}
 %
 % \DescribeMacro{\divergentpar} \DescribeMacro{\gradientpar} \DescribeMacro{\laplacianpar} The \cs{laplacian}, \cs{divergent} and \cs{gradient} also have \texttt{par} variants to automatically add parentheses; for example, |\divergentpar{\rho \nvector{V}}| is the term $\divergentpar{\rho \nvector{V}}$ widely used in fluid mechanics.
 %
-% Finally, for the divergent, there is a command \DescribeMacro{\divergentv} |\divergentv{q}| that automatically wraps the argument into vector form, as in $\divergentv{q}$.
+% Finally, for the divergent (and curl), there are commands \DescribeMacro{\divergentv} \DescribeMacro{\curlv} |\divergentv{q}|, |\curlv{q}| that automatically wraps the argument into vector form, as in $\divergentv{q}$.
 %
 %
 %\subsection{Other operations}
@@ -240,6 +242,12 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\normalvector}
+%   This produces $\normalvector$.
+%    \begin{macrocode}
+\newcommand{\normalvector}{\hat{\nvector{n}}}
+%    \end{macrocode}
+% \end{macro}
 %
 % \subsection{Common operations}
 % \label{sec:common-operations}
@@ -278,6 +286,16 @@
 % \end{macro}
 % \end{macro}
 %
+% \begin{macro}{\curl}
+% \begin{macro}{\curlv}
+%   These two macros produce the diverget of a vector $\curl{\nvector{q}}$. The \cs{curlv} command  automatically converts the argument to a vector 
+%    \begin{macrocode}
+\newcommand{\curl}[1]{\nabla\times{#1}}
+\newcommand{\curlv}[1]{\curl{\nvector{#1}}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
 % \begin{macro}{\gradient}
 % \begin{macro}{\gradientpar}
 %   Gradient of a scalar $\gradient{T}$. The \texttt{par} variant introduces parentheses (e.g. $\gradientpar{\frac{\rho_1}{\rho}}$.
@@ -304,6 +322,12 @@
 \newcommand{\vectornorm}[1]{\left\lVert #1 \right\rVert}
 %    \end{macrocode}
 % \end{macro}
+%\begin{macro}{\unitvector}
+% Typesetts the unit vector in a given direction.
+%    \begin{macrocode}
+\newcommand{\unitvector}[1]{\hat{\nvector{e}}_{#1}}
+%    \end{macrocode}
+%\end{macro}
 %
 % \begin{macro}{\diffpar}
 % \begin{macro}{\diffppar}
