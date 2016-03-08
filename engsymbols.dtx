@@ -24,7 +24,7 @@
 \ProvidesFile{engsymbols.dtx}
 %</driver>
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{engsymbols}[2016/03/08 v0.2 Included more vector commands]
+%<package>\ProvidesPackage{engsymbols}[2016/03/08 v0.2.1 Basic commands, vector operations, volume macros]
 %
 %<package>\RequirePackage{bm}
 %<package>\RequirePackage{amsmath}
@@ -46,7 +46,7 @@
 %</driver>
 % \fi
 %
-% \CheckSum{143}
+% \CheckSum{146}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -67,6 +67,7 @@
 %
 % \changes{v0.1}{2014/12/05}{Initial version}
 % \changes{v0.2}{2016/03/08}{Included more vector commands}
+% \changes{v0.2.1}{2016/03/08}{Included alias for volume macro}
 %
 % \GetFileInfo{engsymbols.sty}
 %
@@ -119,7 +120,7 @@
 %
 % First we have some basic symbols, commands that take no arguments.
 %
-%\DescribeMacro{\volume} This \cs{volume} macro typesets a special symbol $\volume$ to indicate the total volume of something. The more logical $V$ is avoided, mainly in fluid mechanics texts, because it's used for velocity. I chose the calligraphic V because the often used $\forall$ is really ugly and is intended to use with logical propositions (``for all $x$ \ldots'').
+%\DescribeMacro{\volume} \DescribeMacro{\vv} This \cs{volume} (aliased also as \cs{vv}) macro typesets a special symbol $\volume$ to indicate the total volume of something. The more logical $V$ is avoided, mainly in fluid mechanics texts, because it's used for velocity. I chose the calligraphic V because the often used $\forall$ is really ugly and is intended to use with logical propositions (``for all $x$ \ldots'').
 %
 % \DescribeMacro{\hheat} \DescribeMacro{\hmass} The symbols $\hheat$ (\cs{hheat}) and $\hmass$ (\cs{hmass}) are used in some textbooks to indicate the convection heat (or mass) transfer coeficient and to avoid confusion with enthalpy $h$. I'm aware that $\hbar$ is also used for the reduced Planck  constant, but I don't think it's used in engineering literature. I also know that the distinction between an enthalpy value and a heat transfer coefficient value can be inferred by the context, but in a equation with many terms, including terms with enthalpy and heat transfer rates, this can make things clearer. Also notice the m subscript in roman fonts; it's a coefficient for mass transfer, and not a coefficient for a variable $m$.
 %
@@ -188,10 +189,13 @@
 % \label{sec:spec-indiv-symb}
 % 
 %\begin{macro}{\volume}
+%\begin{macro}{\vv}
 %  This macro produces a calligraphic V to indicate volume, as $\volume$. This is usually done to avoid confusion with velocity.
 %    \begin{macrocode}
 \newcommand{\volume}{\mathcal{V}}
+\newcommand{\vv}{\volume}
 %    \end{macrocode}
+%\end{macro}
 %\end{macro}
 %
 %\begin{macro}{\diffd}
